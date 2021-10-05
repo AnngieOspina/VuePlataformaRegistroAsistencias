@@ -1,4 +1,4 @@
-# vuefirstpryect
+# Proyecto plataforma de asistencias
 
 ## Project setup
 ```
