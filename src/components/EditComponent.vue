@@ -63,7 +63,7 @@ export default {
      methods:{
          handleSubmitForm(){
        let apiURL= `http://localhost:4000/api/update-student/${this.$route.params.id}`;
-       axios.post(apiURL, this.student)
+       axios.put(apiURL, this.student)
        .then(res =>{
            console.log(res);
            this.$route.push("/view")
