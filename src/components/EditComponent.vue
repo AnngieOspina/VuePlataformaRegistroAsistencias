@@ -8,7 +8,7 @@
           <input
             type="text"
             class="form-control"
-            v-model="student.name"
+            v-model="students.name"
             required
           />
         </div>
@@ -18,7 +18,7 @@
           <input
             type="email"
             class="form-control"
-            v-model="student.email"
+            v-model="students.email"
              required 
           />
         </div>
@@ -28,7 +28,7 @@
           <input
             type="text"
             class="form-control"
-            v-model="student.phone"
+            v-model="students.phone"
             required
           />
         </div>
@@ -46,7 +46,7 @@ import axios from 'axios'
 export default {
    data(){
     return{
-      student:[]
+      students:[]
     }
     
    },
@@ -61,9 +61,9 @@ export default {
        })
    },
      methods:{
-         handleSubmitForm(){
+      handleSubmitForm(){
        let apiURL= `http://localhost:4000/api/update-student/${this.$route.params.id}`;
-       axios.post(apiURL, this.student)
+       axios.post(apiURL, this.students)
        .then(res =>{
            console.log(res);
            this.$route.push("/view")
