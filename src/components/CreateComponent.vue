@@ -61,7 +61,7 @@ export default {
   methods:{
     handleSubmitForm(){
         console.log(this.student.phone.length)
-        let apiURL= "http://localhost:4000/api/create-student";
+        let apiURL= "https://assitence-platform.herokuapp.com/api/create-student";
         axios.post(apiURL, this.student)
         .then(()=>{
         this.$router.push("/view")

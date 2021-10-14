@@ -43,7 +43,7 @@ export default {
        };
    },
    created(){
-       let apiURL= "http://localhost:4000/api";
+       let apiURL= "https://assitence-platform.herokuapp.com/api";
        axios.get(apiURL)
        .then(res =>{
            this.Students=res.data;
@@ -54,7 +54,7 @@ export default {
    },
    methods:{
      deleteStudent(id){
-       let apiURL=  `http://localhost:4000/api/delete-student/${id}` ;
+       let apiURL=  `https://assitence-platform.herokuapp.com/api/delete-student/${id}` ;
        let indexOfArrayItem=this.Students.findIndex((i)=>i._id===id);
       
       if (window.confirm("Esta seguro de eliminar el reistro")){

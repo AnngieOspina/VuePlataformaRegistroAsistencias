@@ -20,7 +20,6 @@
           
         </tbody>
       </table>
-    
       
       <br>
       <button
@@ -42,7 +41,7 @@ export default {
        };
    },
    created(){
-       let apiURL= "http://localhost:4000/api";
+       let apiURL= "https://assitence-platform.herokuapp.com/api";
        axios.get(apiURL)
        .then(res =>{
            this.Students=res.data;
@@ -55,7 +54,7 @@ export default {
    methods:{
 
       saveList(){
-       let apiURL= ` http://localhost:4000/api/asistencia/$${id}` ;
+       let apiURL= ` https://assitence-platform.herokuapp.com/api/asistencia/$${id}` ;
        axios.post(apiURL)
 
        if("Asistence"){
