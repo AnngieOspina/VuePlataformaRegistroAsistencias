@@ -4,22 +4,27 @@
         <thead class="thead-dark">
           <tr>
             <th>Nombre del estudiante</th>
-            <th>Asistió</th>
+            <th>¿Asistió?</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="student in Students" :key="student._id">
             <td>{{ student.name }}</td>
             <td>
-                <input type="checkbox" id="student._id" v-model="checked">
-                <label for="checkbox">{{ checked }}</label>
+              <input type="checkbox" id="student._id" v-model="student.Assistence">
+                 {{student.Assistence}}
+
+             <label for="checkbox"></label>
             </td>
           </tr>
+          
         </tbody>
       </table>
+    
+      
       <br>
       <button
-            @click.prevent="saveList(students._id)"
+            @click.prevent="saveList(student._id)"
             class="btn btn-danger">
             GUARDAR LISTA
         </button>
@@ -30,40 +35,47 @@
 import axios from "axios";
 export default {
    data(){
+
        return{
-        Students:[]
+        Students:[],
+        
        };
    },
-   saveList(){
+   created(){
        let apiURL= "http://localhost:4000/api";
-       axios.post(apiURL)
+       axios.get(apiURL)
        .then(res =>{
-           this.Students.a=res.data;
+           this.Students=res.data;
+           this.Students.Assistence=false;
        })
        .catch(error =>{
            console.error(error);
        })
    },
    methods:{
-     deleteStudent(id){
-       let apiURL=  `http://localhost:4000/api/delete-student/${id}` ;
-       let indexOfArrayItem=this.Students.findIndex((i)=>i._id===id);
-      
-      if (window.confirm("Esta seguro de eliminar el reistro")){
-         
-         axios.delete(apiURL).then(()=>{
-          this.Students.splice(indexOfArrayItem, 1)
-         })
-         .catch(error=>{
-           console.log(error)
-         });
+
+      saveList(){
+       let apiURL= ` http://localhost:4000/api/asistencia/$${id}` ;
+       axios.post(apiURL)
+
+       if("Asistence"){
+          let suma=this.Students.asistence
+          suma=suma+1
+          return this.Students=res.data;
        }
+       else{
+         console.error("no salio la operacion");
+       }
+       
+   },
+    
+     
    
    },
 
  
 }
-}
+
 </script>
 
 <style>
